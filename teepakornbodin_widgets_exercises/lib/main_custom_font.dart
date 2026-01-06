@@ -1,3 +1,9 @@
+// @author Teepakornbodin Intasoy
+// @version 1.0
+// @date 2025-12-29
+
+// แอปที่แสดงการใช้ฟอนต์ที่กำหนดเองใน Flutter
+// โดยใช้ CustomFont widget ที่สร้างขึ้นเอง
 import 'package:flutter/material.dart';
 import 'components/custom_font.dart';
 
