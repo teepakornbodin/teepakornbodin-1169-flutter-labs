@@ -66,19 +66,12 @@ class MovieListScreen extends StatelessWidget {
           final isHighRated = movie.rating >= 7.0;
 
           return ListTile(
-            leading: Icon(
-              Icons.movie,
-              color: isHighRated
-                  ? colorScheme.primary
-                  : colorScheme.onSurfaceVariant,
-            ),
+            leading: Icon(Icons.movie, color: colorScheme.primary),
             title: Text(
               movie.title,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: isHighRated
-                    ? colorScheme.primary
-                    : colorScheme.onSurfaceVariant,
+                color: colorScheme.primary,
               ),
             ),
             subtitle: Column(
@@ -86,21 +79,11 @@ class MovieListScreen extends StatelessWidget {
               children: [
                 Text(
                   '${movie.year} • ${movie.genre}',
-                  style: TextStyle(
-                    color: isHighRated
-                        ? colorScheme.secondary
-                        : colorScheme.onSurfaceVariant,
-                    fontSize: 13.0,
-                  ),
+                  style: TextStyle(color: colorScheme.primary, fontSize: 13.0),
                 ),
                 Text(
                   "Director: ${movie.director}",
-                  style: TextStyle(
-                    color: isHighRated
-                        ? colorScheme.secondary
-                        : colorScheme.onSurfaceVariant,
-                    fontSize: 13.0,
-                  ),
+                  style: TextStyle(color: colorScheme.primary, fontSize: 13.0),
                 ),
               ],
             ),
@@ -112,7 +95,7 @@ class MovieListScreen extends StatelessWidget {
                   color: isHighRated
                       ? colorScheme.primary
                       : colorScheme.onSurfaceVariant,
-                  size: 16.0,
+                  size: 18.0,
                 ),
                 const SizedBox(width: 4.0),
                 Text(
