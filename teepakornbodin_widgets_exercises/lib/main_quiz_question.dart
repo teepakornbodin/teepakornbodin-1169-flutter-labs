@@ -1,3 +1,21 @@
+// @author Teepakornbodin Intasoy
+// @version 1.0
+// @date 2026-1-12
+
+// Quiz application that asks the user to identify which university
+// is shown in the displayed image.
+//
+// This app uses custom components:
+// - QuestionWithChoices
+// - QuestionChoice
+//
+// Layout logic:
+// The screen is divided vertically using Expanded widgets
+// with a ratio of 1 : 3 : 2
+// - Top section: question title
+// - Middle section: image display
+// - Bottom section: multiple-choice answers
+
 import 'package:flutter/material.dart';
 import 'package:teepakornbodin_widgets_exercises/components/question_with_choices.dart';
 import 'package:teepakornbodin_widgets_exercises/components/question_choice.dart';
