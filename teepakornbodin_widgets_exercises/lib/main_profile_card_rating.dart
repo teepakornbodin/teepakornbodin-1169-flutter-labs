@@ -1,4 +1,10 @@
-library;
+// @author Teepakornbodin Intasoy
+// @version 1.0
+// @date 2026-1-12
+// A custom widget ProfileCardRating wrapped in MaterialApp
+// This code show actor's profile card and contracts.
+// Implemented image stack and listTile for contracts.
+// Use AI to explain the correct principles of row division and use it to verify if all requirements of the prompt have been met.
 
 import 'package:flutter/material.dart';
 import 'package:teepakornbodin_widgets_exercises/screens/profile_card_rating.dart';

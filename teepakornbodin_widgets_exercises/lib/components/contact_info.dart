@@ -23,7 +23,6 @@ class ContactInfo extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // แถวที่ 1: ที่อยู่
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
