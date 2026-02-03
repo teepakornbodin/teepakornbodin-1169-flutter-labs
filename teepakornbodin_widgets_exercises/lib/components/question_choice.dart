@@ -21,8 +21,6 @@ class QuestionChoice extends StatelessWidget {
             : Colors.black);
 
     return Container(
-      width: 150,
-      height: 60,
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(3),
@@ -36,6 +34,7 @@ class QuestionChoice extends StatelessWidget {
             fontSize: 14,
             fontWeight: FontWeight.bold,
           ),
+          textAlign: TextAlign.center,
         ),
       ),
     );

@@ -47,6 +47,7 @@ class MainProductGallery extends StatelessWidget {
           title: const Text('Product Gallery by 663040116-9'),
           centerTitle: true,
         ),
+
         body: Padding(
           padding: const EdgeInsets.all(12),
           child: GridView.builder(

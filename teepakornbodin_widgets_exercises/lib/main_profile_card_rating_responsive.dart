@@ -1,3 +1,12 @@
+// @author Teepakornbodin Intasoy
+// @version 1.0
+// @date 2026-01-16
+
+// A responsive profile card rating app.
+// Inherited/evolved from Lab 5.
+// Logic: Uses private helper methods to toggle between Column (vertical) and Row (horizontal) layouts.
+// AI-verified for correctness based on the prompt.
+
 library;
 
 import 'package:flutter/material.dart';
