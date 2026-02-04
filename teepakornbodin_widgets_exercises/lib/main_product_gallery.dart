@@ -53,11 +53,12 @@ class MainProductGallery extends StatelessWidget {
           child: GridView.builder(
             itemCount: products.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 0.7,
+              crossAxisCount: 2, // จำนวนคอลัมน์
+              childAspectRatio: 0.7, // อัตราส่วนกว้าง:สูง ของแต่ละไอเท็ม
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
             ),
+
             itemBuilder: (context, index) {
               final product = products[index];
               return ProductCard(
