@@ -176,6 +176,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.1"
+  teepakornbodin_widgets_exercises:
+    dependency: "direct main"
+    description:
+      path: "../teepakornbodin_widgets_exercises"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   term_glyph:
     dependency: transitive
     description:
