@@ -25,10 +25,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.light,
+        ),
       ),
+
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.dark,
+        ),
+      ),
+
+      themeMode: ThemeMode.system,
+
       home: const UserDisplay(),
     );
   }
@@ -75,27 +91,39 @@ class _UserDisplayState extends State<UserDisplay> {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Call API By Teepakornbodin 1169'),
+        centerTitle: true,
+      ),
       body: Center(
         child: user == null
             ? const CircularProgressIndicator()
-            : RichText(
-                text: TextSpan(
-                  style: textTheme.bodyMedium,
-                  children: [
-                    TextSpan(
-                      text: user!.name,
-                      style: textTheme.titleLarge?.copyWith(
-                        color: colorScheme.primary,
+            : Padding(
+                padding: const EdgeInsets.all(12),
+                child: RichText(
+                  text: TextSpan(
+                    style: textTheme.bodyMedium,
+                    children: [
+                      TextSpan(
+                        text: user!.name,
+                        style: textTheme.titleLarge?.copyWith(
+                          color: colorScheme.primary,
+                        ),
                       ),
-                    ),
-                    const TextSpan(text: ' works at '),
-                    TextSpan(
-                      text: user!.company,
-                      style: textTheme.titleLarge?.copyWith(
-                        color: colorScheme.secondary,
+                      TextSpan(
+                        text: ' works at ',
+                        style: textTheme.titleLarge?.copyWith(
+                          color: colorScheme.secondary,
+                        ),
                       ),
-                    ),
-                  ],
+                      TextSpan(
+                        text: user!.company,
+                        style: textTheme.titleLarge?.copyWith(
+                          color: colorScheme.secondary,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
       ),
