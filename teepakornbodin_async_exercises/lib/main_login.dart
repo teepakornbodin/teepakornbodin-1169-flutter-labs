@@ -21,13 +21,13 @@ void main() async {
       allowList: {'savedUsername', 'savedPassword'},
     ),
   );
-  runApp(MyApp(prefs: prefs));
+  runApp(LoginApp(prefs: prefs));
 }
 
-class MyApp extends StatelessWidget {
+class LoginApp extends StatelessWidget {
   final SharedPreferencesWithCache prefs;
 
-  const MyApp({super.key, required this.prefs});
+  const LoginApp({super.key, required this.prefs});
 
   @override
   Widget build(BuildContext context) {
