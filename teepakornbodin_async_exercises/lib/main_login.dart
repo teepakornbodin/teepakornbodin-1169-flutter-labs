@@ -81,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (savedPassword != null) {
       _passwordController.text = savedPassword;
     }
-    debugPrint('username: $savedUsername, password: $savedPassword');
+    print('username: $savedUsername, password: $savedPassword');
   }
 
   void _saveCredentials() async {
@@ -92,7 +92,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login'), centerTitle: true),
+      appBar: AppBar(
+        title: const Text('Using Shared Preferences With Cache 1169'),
+        centerTitle: true,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
