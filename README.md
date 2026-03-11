@@ -13,6 +13,7 @@ Repository นี้ประกอบด้วยโฟลเดอร์สำ
 
 | Lab    | Folder                                 | Slide Title                  |
 | ------ | -------------------------------------- | ---------------------------- |
+| Lab 0  | teepakornbodin_first_app               | get-started-with-flutter     |
 | Lab 1  | teepakornbodin_widgets_exercises       | flutter-widgets-part1        |
 | Lab 2  | teepakornbodin_widgets_exercises       | flutter-widgets-part2        |
 | Lab 3  | teepakornbodin_widgets_exercises       | flutter-widgets-part3        |
