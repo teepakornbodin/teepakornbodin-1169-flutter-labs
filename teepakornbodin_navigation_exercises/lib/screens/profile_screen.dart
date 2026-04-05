@@ -23,45 +23,82 @@ class ProfileScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              const SizedBox(height: 24),
+
+              // Avatar with first letter of name
+              CircleAvatar(
+                radius: 48,
+                backgroundColor: colorScheme.primaryContainer,
+                child: Text(
+                  prefs.userName.isNotEmpty
+                      ? prefs.userName[0].toUpperCase()
+                      : 'G',
+                  style: textTheme.displaySmall?.copyWith(
+                    color: colorScheme.onPrimaryContainer,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
               Text(prefs.userName, style: textTheme.headlineMedium),
-              const SizedBox(height: 8),
+              const SizedBox(height: 4),
               Text(
                 prefs.userBio,
                 style: textTheme.titleMedium?.copyWith(
                   color: colorScheme.onSurfaceVariant,
                 ),
               ),
+
               const SizedBox(height: 24),
-              ListTile(
-                leading: Icon(
-                  prefs.soundEnabled ? Icons.volume_up : Icons.volume_off,
-                ),
-                title: const Text('Sound'),
-                subtitle: Text(prefs.soundEnabled ? 'Enabled' : 'Disabled'),
+
+              // Sound and Vibration status as chips
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  OutlinedButton.icon(
+                    onPressed: null,
+                    icon: Icon(
+                      prefs.soundEnabled
+                          ? Icons.volume_up_outlined
+                          : Icons.volume_off_outlined,
+                    ),
+                    label: Text(prefs.soundEnabled ? 'Sound On' : 'Sound Off'),
+                  ),
+                  const SizedBox(width: 12),
+                  OutlinedButton.icon(
+                    onPressed: null,
+                    icon: Icon(
+                      prefs.vibrationEnabled
+                          ? Icons.vibration
+                          : Icons.phone_android,
+                    ),
+                    label: Text(
+                        prefs.vibrationEnabled ? 'Vibration On' : 'Vibration Off'),
+                  ),
+                ],
               ),
-              ListTile(
-                leading: Icon(
-                  prefs.vibrationEnabled
-                      ? Icons.vibration
-                      : Icons.phone_android,
+
+              const SizedBox(height: 16),
+
+              // Theme status
+              Text(
+                'Theme: $themeName',
+                style: textTheme.bodyLarge?.copyWith(
+                  color: colorScheme.onSurfaceVariant,
                 ),
-                title: const Text('Vibration'),
-                subtitle: Text(prefs.vibrationEnabled ? 'Enabled' : 'Disabled'),
               ),
-              ListTile(
-                leading: const Icon(Icons.brightness_6_outlined),
-                title: const Text('Theme'),
-                subtitle: Text(themeName),
-              ),
-              const Spacer(),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text('Edit Settings'),
-                ),
+
+              const SizedBox(height: 32),
+
+              // Edit Settings button
+              ElevatedButton.icon(
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(Icons.settings_outlined),
+                label: const Text('Edit Settings'),
               ),
             ],
           ),

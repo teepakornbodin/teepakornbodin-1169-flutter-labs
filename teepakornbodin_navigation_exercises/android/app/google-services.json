@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "679426021364",
+    "project_id": "lab11problem3",
+    "storage_bucket": "lab11problem3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679426021364:android:68b0d4c3db195189c2cba1",
+        "android_client_info": {
+          "package_name": "com.example.teepakornbodin_widgets_exercises"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1PaBbi5ULbmbTLt0NrAy6qHF0UGjZ42Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

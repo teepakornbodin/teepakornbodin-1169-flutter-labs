@@ -14,8 +14,8 @@ class Contact {
   }
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'phone': phone,
-    'email': email,
-  };
+        'name': name,
+        'phone': phone,
+        'email': email,
+      };
 }

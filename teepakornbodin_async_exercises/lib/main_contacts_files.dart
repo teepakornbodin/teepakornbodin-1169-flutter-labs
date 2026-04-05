@@ -2,10 +2,17 @@
 // @version 1.0
 // @date 2026-03-18
 
-// A Flutter app that manages a list of contacts using local file storage.
-// Logic: Uses path_provider to locate the app documents directory and dart:io to read/write
-// contacts as a JSON file. Loads saved contacts on startup and persists changes after every add.
-// AI-verified for correctness based on the prompt.
+// แอปจัดการรายชื่อผู้ติดต่อโดยใช้การจัดเก็บไฟล์ในเครื่อง
+// ใช้ path_provider หาโฟลเดอร์เอกสารของแอป และ dart:io อ่าน/เขียน JSON
+// โหลดรายชื่อที่บันทึกไว้เมื่อเริ่มแอป และบันทึกทุกครั้งที่เพิ่มรายชื่อใหม่
+
+// Logic:
+// - _loadContacts() เรียกใน initState() อ่านไฟล์ contacts.json ถ้ามีอยู่
+//   แปลง JSON list เป็น List<Contact> พร้อม try/catch ถ้าไฟล์ไม่มีก็เริ่มด้วย list ว่าง
+// - _saveContacts() เขียน contacts list ทั้งหมดเป็น JSON array ทุกครั้งที่เพิ่มรายชื่อ
+//   ใช้ try/catch และแสดง SnackBar เมื่อเกิดข้อผิดพลาด
+// - ปุ่ม Save Contact ตรวจสอบว่าทุก field ไม่ว่างก่อนบันทึก
+//   แสดง SnackBar เมื่อบันทึกสำเร็จ และล้าง field หลังบันทึก
 
 import 'dart:convert';
 import 'dart:io';
@@ -92,7 +99,7 @@ class _ContactManagerScreenState extends State<ContactManagerScreen> {
         });
       }
     } catch (e) {
-      // ไฟล์ไม่พบหรือเกิดข้อผิดพลาดในการอ่านไฟล์ ให้แสดงข้อความแจ้งเตือน
+      // ถ้าไฟล์ไม่มีหรืออ่านไม่ได้ เริ่มด้วย list ว่างโดยไม่ crash
     }
   }
 
@@ -103,9 +110,9 @@ class _ContactManagerScreenState extends State<ContactManagerScreen> {
       await file.writeAsString(jsonEncode(jsonList));
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('Error saving contacts: $e')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error saving contacts: $e')),
+        );
       }
     }
   }
@@ -113,9 +120,9 @@ class _ContactManagerScreenState extends State<ContactManagerScreen> {
   void _saveContact() {
     if (_formKey.currentState!.validate()) {
       final contact = Contact(
-        name: _nameController.text,
-        phone: _phoneController.text,
-        email: _emailController.text,
+        name: _nameController.text.trim(),
+        phone: _phoneController.text.trim(),
+        email: _emailController.text.trim(),
       );
 
       setState(() {
@@ -159,6 +166,7 @@ class _ContactManagerScreenState extends State<ContactManagerScreen> {
                   TextFormField(
                     controller: _phoneController,
                     decoration: const InputDecoration(labelText: 'Phone'),
+                    keyboardType: TextInputType.phone,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter a phone number';
@@ -169,6 +177,7 @@ class _ContactManagerScreenState extends State<ContactManagerScreen> {
                   TextFormField(
                     controller: _emailController,
                     decoration: const InputDecoration(labelText: 'Email'),
+                    keyboardType: TextInputType.emailAddress,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter an email';
